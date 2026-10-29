@@ -1,0 +1,165 @@
+.signup-page {
+  min-height: 100vh;
+  background: #fbf8ef;
+  color: #193b2c;
+  font-family: Arial, sans-serif;
+}
+
+.signup-navbar {
+  height: 76px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 1px solid #e9e5da;
+}
+
+.signup-navbar h2 {
+  font-size: 25px;
+}
+
+.signup-navbar h2 span {
+  color: #ed8b45;
+}
+
+.signup-navbar a,
+.signup-login a {
+  color: #245b43;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.signup-container {
+  max-width: 1120px;
+  margin: 55px auto;
+  padding: 0 24px;
+  display: grid;
+  grid-template-columns: 1fr 440px;
+  gap: 75px;
+  align-items: center;
+}
+
+.signup-tag {
+  color: #d97735;
+  font-size: 12px;
+  font-weight: bold;
+  letter-spacing: 1.5px;
+}
+
+.signup-info h1 {
+  font-size: 48px;
+  line-height: 1.15;
+  margin: 22px 0;
+}
+
+.signup-info h1 span {
+  color: #ed8b45;
+}
+
+.signup-info > p {
+  color: #69766c;
+  line-height: 1.7;
+  max-width: 400px;
+  margin-bottom: 28px;
+}
+
+.signup-benefit {
+  margin: 17px 0;
+  font-size: 15px;
+}
+
+.signup-card {
+  background: white;
+  padding: 34px;
+  border: 1px solid #eee9df;
+  border-radius: 18px;
+  box-shadow: 0 12px 40px #193b2c0d;
+}
+
+.signup-card h2 {
+  font-size: 27px;
+}
+
+.signup-subtitle {
+  color: #7b857c;
+  margin: 10px 0 25px;
+  font-size: 14px;
+}
+
+.signup-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.signup-card label {
+  font-size: 13px;
+  font-weight: 600;
+  margin: 13px 0 8px;
+}
+
+.signup-card input {
+  width: 100%;
+  padding: 13px;
+  border: 1px solid #dedfd6;
+  border-radius: 8px;
+  outline: none;
+  font-size: 14px;
+}
+
+.signup-card input:focus {
+  border-color: #245b43;
+  box-shadow: 0 0 0 3px #245b4314;
+}
+
+.signup-submit {
+  margin-top: 24px;
+  padding: 14px;
+  background: #245b43;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.signup-submit:hover {
+  background: #193b2c;
+}
+
+.signup-login {
+  text-align: center;
+  margin-top: 22px;
+  font-size: 13px;
+}
+
+.signup-terms {
+  text-align: center;
+  color: #92978f;
+  font-size: 11px;
+  line-height: 1.6;
+  margin-top: 22px;
+}
+
+@media (max-width: 850px) {
+  .signup-container {
+    grid-template-columns: 1fr;
+    gap: 35px;
+    max-width: 520px;
+    margin: 35px auto;
+  }
+
+  .signup-info h1 {
+    font-size: 38px;
+  }
+}
+
+@media (max-width: 480px) {
+  .signup-navbar {
+    padding: 0 5%;
+  }
+
+  .signup-card {
+    padding: 24px 20px;
+  }
+}

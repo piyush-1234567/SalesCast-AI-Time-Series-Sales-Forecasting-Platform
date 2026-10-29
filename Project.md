@@ -21,13 +21,13 @@ SalesCast AI is an AI-powered platform that analyzes historical sales data, comp
 
 ### 📝 Sign Up Page
 <!-- Add screenshot: ![Sign Up](docs/Signup.png) -->
-
+![SignUp Page](docs/SignUp.png)
 ### 🔐 Login Page
 <!-- Add screenshot: ![Login](docs/Login.png) -->
-
+![Login Page](docs/Login.png)
 ### 📊 Dashboard
 <!-- Add screenshot: ![Dashboard](docs/Dashboard.png) -->
-
+![Dashboard Page](docs/Dashboard.png)
 ### 📄 Reports & History
 <!-- Add screenshot: ![Reports](docs/Reports.png) -->
 
