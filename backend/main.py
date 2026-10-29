@@ -25,7 +25,7 @@ app.add_middleware(
     allow_origins=[
     "http://localhost:5173",
     "https://sales-cast-ai-time-series-sales-for.vercel.app"
-    ]
+    ],
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
