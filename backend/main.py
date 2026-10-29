@@ -17,7 +17,10 @@ from auth import verify_access_token
 from auth import create_reset_token
 from email_service import send_reset_email
 from auth import verify_reset_token
+import os
+from dotenv import load_dotenv
 
+load_dotenv()
 app = FastAPI(title="SalesCast AI")
 security = HTTPBearer()
 app.add_middleware(
@@ -267,7 +270,7 @@ async def forgot_password(email: str, db: Session = Depends(get_db)):
 
     if user:
         token = create_reset_token(email)
-        reset_link = f"http://localhost:5173/reset-password?token={token}"
+        reset_link = f"{os.getenv('FRONTEND_URL')}/reset-password?token={token}"
         await send_reset_email(email, reset_link)
 
     return {"message": "If the account exists, a reset email will be sent."}
