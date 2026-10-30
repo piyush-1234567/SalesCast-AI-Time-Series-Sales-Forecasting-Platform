@@ -1,26 +1,38 @@
 import os
-import aiosmtplib
-from email.message import EmailMessage
+import httpx
 from dotenv import load_dotenv
 
 load_dotenv()
 
 async def send_reset_email(to_email: str, reset_link: str):
-    message = EmailMessage()
-    message["From"] = "piyushjain07032004@gmail.com"
-    message["To"] = to_email
-    message["Subject"] = "SalesCast AI - Reset Your Password"
-    message.set_content(
-        f"Click this link to reset your password: {reset_link}\n"
-        "If you didn't request this, ignore this email."
-    )
+    api_key = os.getenv("BREVO_API_KEY")
 
-    await aiosmtplib.send(
-        message,
-        hostname=os.getenv("SMTP_SERVER"),
-        port=int(os.getenv("SMTP_PORT", 587)),
-        username=os.getenv("SMTP_LOGIN"),
-        password=os.getenv("SMTP_PASSWORD"),
-        start_tls=True,
-    )
+    if not api_key:
+        raise RuntimeError("BREVO_API_KEY is not configured")
+
+    payload = {
+        "sender": {
+            "name": "SalesCast AI",
+            "email": "piyushjain07032004@gmail.com"
+        },
+        "to": [{"email": to_email}],
+        "subject": "SalesCast AI - Reset Your Password",
+        "textContent": (
+            f"Click this link to reset your password: {reset_link}\n"
+            "If you didn't request this, ignore this email."
+        )
+    }
+
+    async with httpx.AsyncClient(timeout=20) as client:
+        response = await client.post(
+            "https://api.brevo.com/v3/smtp/email",
+            headers={
+                "api-key": api_key,
+                "Content-Type": "application/json",
+                "accept": "application/json"
+            },
+            json=payload
+        )
+        response.raise_for_status()
+
     print("Reset email sent successfully")
